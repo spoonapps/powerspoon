@@ -154,7 +154,7 @@ function Import-SpoonImage
 
     $command = "spoon pull $fqn"
 
-    $stringdata = Invoke-Expression $command
+    $stringdata = Invoke-Expression $command | out-string
 
     Write-Verbose $stringdata
 }
