@@ -59,7 +59,7 @@ function Disconnect-SpoonUser
 
     $stringdata = Invoke-Expression $command
 
-    if (($stringdata -like " logged out at ") -or ($stringdata -eq "You are not currently logged into Spoon"))
+    if (($stringdata -like "*logged out at*") -or ($stringdata -eq "You are not currently logged into Spoon"))
     {
         Write-Verbose $stringdata
     }
