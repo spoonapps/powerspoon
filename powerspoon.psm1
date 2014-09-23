@@ -194,9 +194,9 @@ function Convert-SpoonContainerToImage
         $Force
     )
 
-	$command = "spoon commit $_ $Name"
+	$command = "spoon commit $ID $Name"
 
-	$stringdata = Invoke-Expression $command
+	$stringdata = Invoke-Expression $command | out-string
 
 	Write-Verbose $stringdata
 }
