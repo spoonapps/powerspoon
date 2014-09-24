@@ -59,7 +59,7 @@ function Disconnect-SpoonUser
 
     $stringdata = Invoke-Expression $command
 
-    if (($stringdata -like " logged out at ") -or ($stringdata -eq "You are not currently logged into Spoon"))
+    if (($stringdata -like "*logged out at*") -or ($stringdata -eq "You are not currently logged into Spoon"))
     {
         Write-Verbose $stringdata
     }
@@ -154,7 +154,7 @@ function Import-SpoonImage
 
     $command = "spoon pull $fqn"
 
-    $stringdata = Invoke-Expression $command
+    $stringdata = Invoke-Expression $command | out-string
 
     Write-Verbose $stringdata
 }
@@ -194,9 +194,9 @@ function Convert-SpoonContainerToImage
         $Force
     )
 
-	$command = "spoon commit $_ $Name"
+	$command = "spoon commit $ID $Name"
 
-	$stringdata = Invoke-Expression $command
+	$stringdata = Invoke-Expression $command | out-string
 
 	Write-Verbose $stringdata
 }
