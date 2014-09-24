@@ -204,11 +204,9 @@ function Convert-SpoonContainerToImage
 
 <#
 .Synopsis
-   Builds an image from a container.
+   Create a new Image.
 .DESCRIPTION
-   This is equivalent of 'spoon commit'.
-
-   The image is built from the container's most recent state.
+   TODO
 .EXAMPLE
    TODO
 .NOTE
@@ -309,7 +307,7 @@ function New-SpoonImage
 		$command += " $Path"
 	}
 
-	$stringdata = Invoke-Expression $command
+	$stringdata = Invoke-Expression $command | Out-String
 	
 	Write-Verbose "COMMAND: $command"
 	Write-Verbose "RESULTS: $stringdata"
